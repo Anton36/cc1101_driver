@@ -10,8 +10,6 @@ typedef struct {
   SPI_HandleTypeDef *hspi;
   GPIO_TypeDef *cs_port;
   uint16_t cs_pin;
-  uint32_t cpu_hz;
-  uint8_t dwt_ok;
 } cc_stm_ctx_t;
 
 static void cs_set_level(void *user, uint8_t level) {
