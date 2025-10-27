@@ -185,7 +185,9 @@ int cc1101_write_data(uint8_t addr, uint8_t *data, uint8_t size) {
 int load_config(uint8_t config) {
   if (config == 1) {
     uint8_t status;
-    status = cc1101_write_data(0x00, cc1101_cfg_from_smrf, sizeof(cc1101_cfg_from_smrf));
+    status = cc1101_write_data(0x00, cc1101_cfg_from_smrf,
+                               sizeof(cc1101_cfg_from_smrf));
     return status;
   }
+  return CC1101_OK;
 }

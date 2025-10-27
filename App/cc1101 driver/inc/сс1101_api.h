@@ -21,7 +21,7 @@
 
 enum {
     CC1101_OK = 0,
-    СС1101_TIMEOUT = -1,
+    CC1101_TIMEOUT = -1,
     CC1101_EINVAL = -2,
     CC1101_EIO = -3,
 
