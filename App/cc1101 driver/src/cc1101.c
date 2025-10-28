@@ -191,3 +191,34 @@ int load_config(uint8_t config) {
   }
   return CC1101_OK;
 }
+
+int cc1101_set_preamble(uint8_t num_preamble)
+{
+  uint8_t code;
+  int status;
+  switch(num_preamble){
+    case 2: code =0b000;break;
+    case 3: code = 0b001 ;break;
+    case 4: code = 0b010;break;
+    case 6: code = 0b011;break;
+    case 8: code = 0b100;break;
+    case 12: code = 0b101;break;
+    case 16: code = 0b110;break;
+    case 24: code = 0b111;break;
+    default: code = 0b010; //4 byte default
+  }
+  uint8_t mdm1;
+  status = cc1101_read_register(MDMCFG1,&mdm1);
+  if (status != 1) return CC1101_EIO;
+  
+  uint8_t mdm2 = (mdm1 & ~MDMCFG1_NUM_PREAMBLE_Msk) | (code << 4);
+  cc1101_write_register(MDMCFG1,mdm2);
+  if (status != 1) return CC1101_EIO;
+
+  uint8_t mdm3;
+  cc1101_read_register(MDMCFG1,&mdm3);
+  if (status != 1) return CC1101_EIO;
+
+
+  return CC1101_OK;
+}

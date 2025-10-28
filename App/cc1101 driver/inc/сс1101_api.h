@@ -30,5 +30,6 @@ int cc1101_driver_init(cc1101_fun_table *fun_table);
 void cc1101_reset();
 bool cc1101_check();
 int load_config(uint8_t config);
+int cc1101_set_preamble(uint8_t num_preamble);
 
 #endif

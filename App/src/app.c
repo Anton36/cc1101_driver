@@ -74,6 +74,8 @@ void app() {
     printf("error check driver ");
   }
   load_config(1);
+  cc1101_set_preamble(24);
+  
 
   while (1) {
 

@@ -101,6 +101,19 @@
 #define RCCTRL0_STATUS 0xFD // Last RC Oscillator Calibration Result
 //--------------------------[END status register]-------------------------------
 
+
+
+
+#define MDMCFG1_NUM_PREAMBLE_Msk (0x7u << 4)
+
+
+
+
+
+
+
+
+
 // bool cc1101_driver_init(SPI_HandleTypeDef* hspi,   GPIO_TypeDef* cs_port,
 // uint16_t cs_pin);
 void cc1101_reset();
